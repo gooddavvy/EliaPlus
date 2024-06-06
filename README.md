@@ -3,7 +3,7 @@
 </h1>
 
 <p align="center">
-  <i align="center">A snappy, keyboard-centric terminal user interface for interacting with AI agents and augmenting humans using AI.</i><br>
+  <i align="center">A snappy, keyboard-centric terminal user interface for interacting with AI agents and augmenting humans using AI!</i><br>
   <i align="center">Chat with Claude 3, ChatGPT, and local models like Llama 3, Phi 3, Mistral and Gemma.</i>
 </p>
 
