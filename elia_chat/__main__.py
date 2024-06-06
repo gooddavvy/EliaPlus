@@ -1,5 +1,5 @@
 """
-Elia CLI
+Elia+ CLI
 """
 
 import asyncio

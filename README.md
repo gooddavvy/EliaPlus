@@ -1,8 +1,9 @@
 <h1 align="center">
-    <img src="https://github.com/darrenburns/elia/assets/5740731/4037b91a-1ad8-4d5b-884d-b3f1b495acf4" width="126px">
+    <img src="eliaplus.png" width="126px">
 </h1>
+
 <p align="center">
-  <i align="center">A snappy, keyboard-centric terminal user interface for interacting with large language models.</i><br>
+  <i align="center">A snappy, keyboard-centric terminal user interface for interacting with AI agents and augmenting humans using AI.</i><br>
   <i align="center">Chat with Claude 3, ChatGPT, and local models like Llama 3, Phi 3, Mistral and Gemma.</i>
 </p>
 
@@ -10,7 +11,7 @@
 
 ## Introduction
 
-`elia` is an application for interacting with LLMs which runs entirely in your terminal, and is designed to be keyboard-focused, efficient, and fun to use!
+`EliaPlus` is an application for interacting with LLMs which runs entirely in your terminal, and is designed to be keyboard-focused, efficient, and fun to use!
 It stores your conversations in a local SQLite database, and allows you to interact with a variety of models.
 Speak with proprietary models such as ChatGPT and Claude, or with local models running through `ollama` or LocalAI.
 
