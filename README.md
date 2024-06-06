@@ -3,8 +3,8 @@
 </h1>
 
 <p align="center">
-  <i align="center">A snappy, keyboard-centric terminal user interface for interacting with AI agents and augmenting humans using AI!</i><br>
-  <i align="center">Chat with Claude 3, ChatGPT, and local models like Llama 3, Phi 3, Mistral and Gemma.</i>
+  <b align="center">An experimental, snappy, and keyboard-centric UI for interacting with AI agents and augmenting humans using AI!</i><br>
+  <b align="center">Chat about any thing with any agent.</i>
 </p>
 
 ![elia-screenshot-collage](https://github.com/darrenburns/elia/assets/5740731/75f8563f-ce1a-4c9c-98c0-1bd1f7010814)
