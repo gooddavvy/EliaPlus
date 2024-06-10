@@ -1,6 +1,5 @@
 from typing import TYPE_CHECKING, Any
 
-
 from elia_chat.database.models import ChatDao, MessageDao
 from elia_chat.models import ChatData, ChatMessage, get_model
 

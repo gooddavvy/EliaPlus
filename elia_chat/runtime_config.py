@@ -1,5 +1,4 @@
 from pydantic import BaseModel, ConfigDict
-
 from elia_chat.config import EliaChatModel
 
 

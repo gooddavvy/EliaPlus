@@ -4,21 +4,18 @@ from dataclasses import dataclass
 from datetime import UTC, datetime
 from typing import TYPE_CHECKING
 
-
 from elia_chat.config import LaunchConfig, EliaChatModel, launch_config
 
 if TYPE_CHECKING:
     from litellm.types.completion import ChatCompletionMessageParam
 
-
 class UnknownModel(EliaChatModel):
     pass
-
 
 def get_model(
     model_id_or_name: str, config: LaunchConfig | None = None
 ) -> EliaChatModel:
-    """Given the id or name of a model as a string, return the EliaChatModel.
+    """Given the id or name of a model as a string, return the `EliaChatModel`.
 
     Models are looked up by ID first.
     """

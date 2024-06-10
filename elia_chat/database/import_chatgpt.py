@@ -1,4 +1,3 @@
-import json
 from datetime import datetime
 from pathlib import Path
 
@@ -6,15 +5,14 @@ from rich.console import Console
 from rich.live import Live
 from rich.text import Text
 
-from elia_chat.database.database import get_session
+from elia_chat.database import get_session
 from elia_chat.database.models import MessageDao, ChatDao
+from elia_chat.utils.jsonu import json_parsef
 
 
 async def import_chatgpt_data(file: Path) -> None:
     console = Console()
-
-    with open(file, "r") as f:
-        data = json.load(f)
+    data = json_parsef(file)
 
     console.print("[green]Loaded and parsed JSON.")
 

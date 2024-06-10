@@ -1,9 +1,10 @@
 [project]
 name = "elia_chat"
 version = "1.7.0"
-description = "A powerful terminal user interface for interacting with large language models."
+description = "A powerful terminal user interface for interacting with AI agents."
 authors = [
     { name = "Darren Burns", email = "darrenb900@gmail.com" }
+    # { name = "David Akins", email = "gooddavvy@gmail.com" }
 ]
 dependencies = [
     "textual[syntax]==0.60.0",

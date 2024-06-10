@@ -1,5 +1,21 @@
 {
     "python.analysis.include": [
         "elia_chat/**/*.py",
+    ],
+    "cSpell.words": [
+        "aiofiles",
+        "aiosqlite",
+        "chatbox",
+        "eliaplus",
+        "jsonstr",
+        "jsonu",
+        "litellm",
+        "parsef",
+        "pydantic",
+        "Renderable",
+        "selectinload",
+        "sessionmaker",
+        "sqlalchemy",
+        "sqlmodel"
     ]
 }

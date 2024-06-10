@@ -9,6 +9,7 @@ from textual.binding import Binding
 from textual.signal import Signal
 
 from elia_chat.chats_manager import ChatsManager
+from elia_chat.utils.locations import elia_chat_root
 from elia_chat.models import ChatData, ChatMessage
 from elia_chat.config import EliaChatModel, LaunchConfig, launch_config
 from elia_chat.runtime_config import RuntimeConfig
@@ -22,10 +23,9 @@ if TYPE_CHECKING:
         ChatCompletionSystemMessageParam,
     )
 
-
 class Elia(App[None]):
     ENABLE_COMMAND_PALETTE = False
-    CSS_PATH = Path(__file__).parent / "elia.scss"
+    CSS_PATH = elia_chat_root() / "elia+.scss"
     BINDINGS = [
         Binding("q", "app.quit", "Quit", show=False),
         Binding("f1,?", "help", "Help"),
@@ -46,7 +46,7 @@ class Elia(App[None]):
         when the user has changed configuration at runtime (e.g. using the UI)."""
 
         self.startup_prompt = startup_prompt
-        """Elia can be launched with a prompt on startup via a command line option.
+        """Elia+ can be launched with a prompt on startup via a command line option.
 
         This is a convenience which will immediately load the chat interface and
         put users into the chat window, rather than going to the home screen.

@@ -11,7 +11,7 @@ from elia_chat.database.converters import (
     chat_message_to_message_dao,
     message_dao_to_chat_message,
 )
-from elia_chat.database.database import get_session
+from elia_chat.database import get_session
 from elia_chat.database.models import ChatDao, MessageDao
 from elia_chat.models import ChatData, ChatMessage
 

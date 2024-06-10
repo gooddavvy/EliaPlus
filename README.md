@@ -1,9 +1,9 @@
 <h1 align="center">
-    <img src="eliaplus.png" width="126px">
+    <img src="images/elia+.png" width="126px">
 </h1>
 
 <p align="center">
-  <b align="center">An experimental, snappy, and keyboard-centric UI for interacting with AI agents and augmenting humans using AI!</i><br>
+  <b align="center">An experimental, snappy, and keyboard-centric UI for interacting with AI agents and augmenting humans using AI!</i><br />
   <b align="center">Chat about any thing with any agent.</i>
 </p>
 
@@ -11,51 +11,57 @@
 
 ## Introduction
 
-`elia+` (powered, modified, and credited by [`elia`](https://github.com/darrenburns/elia)) is an application for interacting with LLMs which runs entirely in your terminal, and is designed to be keyboard-focused, efficient, and fun to use!
+`elia+` (powered by, modified from, and credited to [`elia`](https://github.com/darrenburns/elia)) is an application for interacting with LLMs which runs entirely in your terminal, and is designed to be keyboard-focused, efficient, and fun to use!
 It stores your conversations in a local SQLite database, and allows you to interact with a variety of models.
 Speak with proprietary models such as ChatGPT and Claude, or with local models running through `ollama` or LocalAI.
 
 ## Installation
 
-Install Elia with [pipx](https://github.com/pypa/pipx):
+Clone Elia+ with Git and install the requirements with `pip`:
 
 ```bash
-pipx install elia-chat
+git clone https://github.com/gooddavvy/EliaPlus.git
+cd EliaPlus
+pip install -r requirements.txt
 ```
 
 Depending on the model you wish to use, you may need to set one or more environment variables (e.g. `OPENAI_API_KEY`, `ANTHROPIC_API_KEY`, `GEMINI_API_KEY` etc).
 
+**Important Note: Usage of Elia+ may not work as expected if you have the `elia_chat` ([Regular Elia](https://github.com/darrenburns/elia)) package installed. You might consider temporarily uninstalling `elia_chat` if you already have it installed.**
+
 ## Quickstart
 
-Launch Elia from the command line:
+After doing the entire cloning step, launch Elia+ from the command line:
 
 ```bash
-elia
+python -m elia_chat
 ```
 
 Launch a new chat inline (under your prompt) with `-i`/`--inline`:
 
 ```bash
-elia -i "What is the Zen of Python?"
+python -m elia_chat -i "What is the Zen of Python?"
 ```
 
 Launch a new chat in full-screen mode:
 
 ```bash
-elia "Tell me a cool fact about lizards!"
+python -m elia_chat "Tell me a cool fact about lizards!"
 ```
 
 Specify a model via the command line using `-m`/`--model`:
 
 ```bash
-elia -m gpt-4o
+python -m elia_chat -m gpt-4o
 ```
 
 Options can be combined - here's how you launch a chat with Gemini 1.5 Flash in inline mode (requires `GEMINI_API_KEY` environment variable).
 
 ```bash
-elia -i -m gemini/gemini-1.5-flash-latest "How do I call Rust code from Python?"
+python -m elia_chat -i -m gemini/gemini-1.5-flash-latest "How do I call Rust code from Python?"
 ```
+
+Remember, for now, you can't use Elia+ unless you are in the `EliaPlus` directory that you cloned.
 
 ## Running local models
 
@@ -130,17 +136,20 @@ With this mapping in place, pressing <kbd>Cmd</kbd>+<kbd>Enter</kbd> will send a
 Export your conversations to a JSON file using the ChatGPT UI, then import them using the `import` command.
 
 ```bash
-elia import 'path/to/conversations.json'
+python -m elia_chat import 'path/to/conversations.json'
 ```
 
 ## Wiping the database
 
 ```bash
-elia reset
+python -m elia_chat reset
 ```
 
 ## Uninstalling
 
 ```bash
-pipx uninstall elia-chat
+cd ..
+cd ..
+# Running `cd ..` twice ensures that you are in the same directory as EliaPlus is in
+del EliaPlus
 ```

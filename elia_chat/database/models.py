@@ -6,7 +6,8 @@ from sqlalchemy.ext.asyncio import AsyncAttrs
 from sqlalchemy.orm import selectinload
 from sqlmodel import Field, Relationship, SQLModel, select
 
-from elia_chat.database.database import get_session
+from elia_chat.database import get_session
+from elia_chat.utils.jsonu import json_parse
 
 
 class SystemPromptsDao(AsyncAttrs, SQLModel, table=True):
@@ -63,11 +64,28 @@ class ChatDao(AsyncAttrs, SQLModel, table=True):
     @staticmethod
     async def all() -> list["ChatDao"]:
         async with get_session() as session:
-            # Create a subquery that finds the maximum
-            # (most recent) timestamp for each chat.
-            max_timestamp: Any = func.max(MessageDao.timestamp).label("max_timestamp")
+            query_json = """
+            {
+                "subquery": {
+                    "select": ["chat_id", {"max_timestamp": {"func": "max", "column": "timestamp"}}],
+                    "group_by": ["chat_id"]
+                },
+                "main_query": {
+                    "select": "all",
+                    "join": {"subquery": {"on": ["chat_id", "id"]}},
+                    "where": {"archived": false},
+                    "order_by": {"column": "max_timestamp", "direction": "desc"},
+                    "load": "messages"
+                }
+            }
+            """
+            query = json_parse(query_json)
+            
             subquery = (
-                select(MessageDao.chat_id, max_timestamp)
+                select(
+                    MessageDao.chat_id, 
+                    func.max(MessageDao.timestamp).label("max_timestamp")
+                )
                 .group_by(MessageDao.chat_id)
                 .alias("subquery")
             )
@@ -75,10 +93,11 @@ class ChatDao(AsyncAttrs, SQLModel, table=True):
             statement = (
                 select(ChatDao)
                 .join(subquery, subquery.c.chat_id == ChatDao.id)
-                .where(ChatDao.archived == False)  # noqa: E712
+                .where(ChatDao.archived == False)
                 .order_by(desc(subquery.c.max_timestamp))
                 .options(selectinload(ChatDao.messages))
             )
+
             results = await session.exec(statement)
             return list(results)
 

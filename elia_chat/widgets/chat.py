@@ -4,7 +4,7 @@ import datetime
 from dataclasses import dataclass
 from typing import TYPE_CHECKING, cast
 
-from elia_chat import constants
+from elia_chat.utils import constants
 from textual import log, on, work, events
 from textual.app import ComposeResult
 from textual.binding import Binding

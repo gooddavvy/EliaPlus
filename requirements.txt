@@ -1,0 +1,14 @@
+aiofiles
+click
+click_default_group
+humanize
+litellm
+pydantic
+pyperclip
+rich
+SQLAlchemy
+sqlmodel
+textual
+tiktoken
+# whoops
+xdg_base_dirs

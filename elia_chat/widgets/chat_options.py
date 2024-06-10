@@ -12,9 +12,9 @@ from textual.screen import ModalScreen
 from textual.widgets import Footer, RadioSet, RadioButton, Static, TextArea
 
 from elia_chat.config import EliaChatModel
-from elia_chat.locations import config_file
+from elia_chat.utils.locations import config_file
 from elia_chat.runtime_config import RuntimeConfig
-from elia_chat.database.database import sqlite_file_name
+from elia_chat.database import db_file_name
 
 if TYPE_CHECKING:
     from elia_chat.app import Elia
@@ -90,7 +90,7 @@ class OptionsModal(ModalScreen[RuntimeConfig]):
             yield system_prompt_ta
             with Vertical(id="xdg-info") as xdg_info:
                 xdg_info.border_title = "More Information"
-                yield Static(f"{sqlite_file_name.absolute()}\n[dim]Database[/]\n")
+                yield Static(f"{db_file_name.absolute()}\n[dim]Database[/]\n")
                 yield Static(f"{config_file()}\n[dim]Config[/]")
             # TODO - yield and dock a label to the bottom explaining
             #  that the changes made here only apply to the current session
