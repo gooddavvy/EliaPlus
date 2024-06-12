@@ -10,6 +10,7 @@
         "jsonstr",
         "jsonu",
         "litellm",
+        "ollama",
         "parsef",
         "pydantic",
         "Renderable",
